@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SocketsGateway } from './sockets.gateway';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersEntity } from './users/entities/users.entity';
+import { MessagesModule } from './messages/messages.module';
+import { MessagesEntity } from './messages/entities/messages.entity';
 
 @Module({
   imports: [
@@ -20,13 +21,14 @@ import { UsersEntity } from './users/entities/users.entity';
         username: configService.get<string>('DATABASE_USER'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
-        entities: [UsersEntity],
+        entities: [MessagesEntity, UsersEntity],
         synchronize: false,
       }),
       inject: [ConfigService],
     }),
+    MessagesModule,
   ],
   controllers: [AppController],
-  providers: [AppService, SocketsGateway],
+  providers: [AppService],
 })
 export class AppModule {}
