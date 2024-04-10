@@ -22,7 +22,8 @@ import { MessagesEntity } from './messages/entities/messages.entity';
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
         entities: [MessagesEntity, UsersEntity],
-        synchronize: false,
+        synchronize:
+          configService.get<string>('DATABASE_SYNCHRONIZE') === 'enable',
       }),
       inject: [ConfigService],
     }),

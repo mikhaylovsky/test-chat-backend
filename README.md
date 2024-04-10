@@ -2,38 +2,36 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Live chat backend app based on Node.js, typescript and socket.io library.
+
+## Technologies used
+- Nest.js v10 (Node.js based framework for backend)
+- socket.io (Websockets library for chat integration)
+- Postgres (Relational database for data storage)
+- railway.app (Cloud app for deployment and hosting)
 
 ## Installation
+
+**NOTE**: You must have node environment not lower than 18 version or higher.
+
+First, clone this repository to your local machine. Then, follow these steps:
+1. Enter the cloned repository, and run the installation command:
 
 ```bash
 $ yarn install
 ```
+***you can obviously use **npm** if this is your favourite package manager*
 
-## Running the app
+2. Set up the environment variables. There is a **.env.example** file with all needed variables, you can just simply copy/paste it and rename it to **.env**. Then, you can update some variables, such as **DATABASE_PORT**, **DATABASE_USER**, etc to that you prefer. Please note, that there are no migrations set up within the project, but there is a **TypeORM** package installed, which provides a syncronization functiolaity and can update the database on the fly. To that purpose, there is a **DATABASE_SYNCHRONIZE** variable, which is set to **enable** by default. I recommend to perform a first start of the app with no changes, to allow the project automatically create needed database tables. Then, you can set this variable to **false** to prevent any changes at the database.
 
+3. Set up the docker container for the database:
+```bash
+$ docker-compose up -d --build
+```
+
+4. When the container is up and runnning, there is a time to run the app:
 ```bash
 # development
 $ yarn run start
@@ -45,29 +43,4 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+5. In case everything goes well, there should a plenty of messages inside your console, and the last one should look like **LOG [NestApplication] Nest application successfully started** - that means that backend is ready to work.
