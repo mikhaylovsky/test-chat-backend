@@ -8,10 +8,10 @@ import {
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { MessagesService } from './messages.service';
-import { CreateMessageDto } from './dtos/create-message.dto';
-import { MessagesEntity } from './entities/messages.entity';
-import { UsersService } from '../users/users.service';
-import { UsersEntity } from '../users/entities/users.entity';
+import { CreateMessageDto } from './dtos';
+import { MessagesEntity } from './entities';
+import { UsersService } from 'src/users/users.service';
+import { UsersEntity } from 'src/users/entities';
 import { randomUUID } from 'crypto';
 
 @WebSocketGateway({

@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { MessagesEntity } from './entities/messages.entity';
-import { CreateMessageDto } from './dtos/create-message.dto';
-import { UsersService } from '../users/users.service';
-import { UsersEntity } from '../users/entities/users.entity';
+import { MessagesEntity } from './entities';
+import { CreateMessageDto } from './dtos';
+import { UsersService } from 'src/users/users.service';
+import { UsersEntity } from 'src/users/entities';
 import { plainToInstance } from 'class-transformer';
 
 @Injectable()

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UsersEntity } from './entities/users.entity';
+import { UsersEntity } from './entities';
 import { Repository } from 'typeorm';
 import { plainToInstance } from 'class-transformer';
 

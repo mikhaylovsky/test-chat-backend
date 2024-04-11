@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from 'src/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UsersEntity } from './users/entities/users.entity';
-import { MessagesModule } from './messages/messages.module';
-import { MessagesEntity } from './messages/entities/messages.entity';
+import { UsersEntity } from 'src/users/entities';
+import { MessagesModule } from 'src/messages/messages.module';
+import { MessagesEntity } from 'src/messages/entities';
 
 @Module({
   imports: [
